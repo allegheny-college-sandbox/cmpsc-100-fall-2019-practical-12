@@ -17,10 +17,9 @@ public class Safe {
   public boolean crackSafe(Key key) {
     if(this.lock.pick(key)) {
      this.cracked = true;
-     return true;
     }
     this.cracked = false;
-    return false;
+    return this.cracked;
   }
   
   public String toString() {

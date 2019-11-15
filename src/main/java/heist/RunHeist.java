@@ -20,7 +20,7 @@ public class RunHeist {
     }
     Key key;
     boolean isCracked;
-    File bonanza = new File("outputs/bonanza");
+    File bonanza = new File("outputs/this.bonanza");
     do {
       key = new Key(input.nextLine());
       isCracked = safe.crackSafe(key);
