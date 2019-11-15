@@ -1,0 +1,55 @@
+---
+name: practical-12
+break: true
+indent: 4
+---
+ExecuteCommand --command "gradle run"
+
+src/main:
+    java:
+        heist/Key.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "public Key(String core)" --count 1 --exact
+            MatchFileFragment --fragment "this.core = core" --count 1 --exact
+            
+
+src/main:
+    java:
+        heist/Lock.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "public boolean pick(Key key)" --count 1 --exact
+            MatchFileFragment --fragment "return true;" --count 1 --exact
+            MatchFileFragment --fragment "return false;" --count 1 --exact
+
+src/main:
+    java:
+        heist/Safe.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "public boolean crackSafe(Key key)" --count 1 --exact
+            MatchFileFragment --fragment "this.cracked = false;" --count 1 --exact
+            MatchFileFragment --fragment "this.cracked = true;" --count 1 --exact
+            MatchFileFragment --fragment "return this.cracked" --count 1 --exact
+            
+            
+src/main:
+    java:
+        heist/RunHeist.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{Your Name Here}" --count 0 --exact
+            MatchFileFragment --fragment "FileWriter writer = new FileWriter(" --count 1 --exact
+            MatchFileFragment --fragment "writer.write(safe" --count 1 --exact
+            MatchFileFragment --fragment "writer.close();" --count 1 --exact
+            
+outputs:
+    the.bonanza:
+        ConfirmFileExists
+            
+CountCommits --count 5
+ExecuteCommand --command "gradle build"

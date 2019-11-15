@@ -49,6 +49,8 @@ The safe at the bank that G. Wiz has chosen works like this:
 * Somehow, it allows infinite attempts to unlock it (we might want to advise the bank managers otherwise, later)
 * When the correct code is entered, the safe opens, and the jackpot/bonanza/contents are revealed
 
+Somehow, G. Wiz got a copy of the list of potential keys -- your job is to put the heist together!
+
 ## Required deliverables
 
 Each member of your team must work on one of the following parts indepdent of each other on an indepdenent `branch` in your group's `git` repository (we'll talk about this before starting the activity).
@@ -61,17 +63,16 @@ Once the work is complete, designate one member of your group to be the `master 
 
 ### `Key.java`
 
-- [ ] Contains a `public` class called `Key`
-- [ ] Contains one instance variable which is a `public final string` called `core``
-- [ ] Contains a `constructor` which takes one argument, a `String` called `core`
+- [ ] Contains one instance variable which is a `public final string` called `core`
+- [ ] Contains a `constructor` called `Key`
+- [ ] The `contstructor` takes one argument, a `String` called `core`
 - [ ] Sets `core` equal to `this` instance's `core` identifier
 
 ### `Lock.java`
 
-- [ ] Contains a `method` called `pick` which:
-- [ ] Takes one argument, a `Key` object called `key`
-- [ ] Returns a `true` or `false`: `true` if `this` instance's `core` identifier equals the `core` of the `key` object passsed to it
-- [ ] Otherwise, the `method` should return `false`
+- [ ] Contains a `method` called `pick`
+- [ ] `pick` takes one argument, a `Key` object called `key`
+- [ ] `pick` returns a `true` or `false`: `true` if `this` instance's `core` identifier equals the `core` of the `key` object passsed to it; otherwise, the `method` should return `false`
 
 ### `Safe.java`
 
@@ -79,11 +80,13 @@ Once the work is complete, designate one member of your group to be the `master 
 - [ ] Takes one argument a `Key` object called `key`
 - [ ] Sets an instance variabled called `isCracked` to `true` if the `key` passed to `this` instance's `Lock` object's `pick` method returns `true`
 - [ ] Otherwise the method should return `false`
+* Hint: the above boolean `return` can be accomplished by returning an `instance variable` which already exists
 
 ### `RunHeist.java`
 
-- [ ] Implements `FileWriter` to write the output of the `Safe` object to find out what was in the safe
-- [ ] Writes these contents to a file called `this.bonanza`
+- [ ] Implements `FileWriter` using the identifier `writer` to write the output of the `Safe` object to find out what was in the safe
+- [ ] Writes these contents to a file called `the.bonanza`
+- [ ] Invokes the write method of `FileWriter` to write the value of `safe` plus a new line
 
 
 ## GatorGrader

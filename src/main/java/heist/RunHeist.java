@@ -6,8 +6,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/** Runs the heist story.
+ *
+ * @author Douglas Luman
+ */
 public class RunHeist {
   
+  /** Entry point.
+   *
+   * @param args The command line arguments
+   */
   public static void main(String[] args) {
     Safe safe = new Safe();
     File file = null;
@@ -20,7 +28,7 @@ public class RunHeist {
     }
     Key key;
     boolean isCracked;
-    File bonanza = new File("outputs/this.bonanza");
+    File bonanza = new File("outputs/the.bonanza");
     do {
       key = new Key(input.nextLine());
       isCracked = safe.crackSafe(key);
@@ -29,7 +37,9 @@ public class RunHeist {
         writer.write(safe + "\n");
         writer.close();
       } catch (IOException err) {
+        System.exit(0);
       }
-    } while (input.hasNext() && !isCracked);
+    } 
+    while (input.hasNext() && !isCracked);
   }
 }
