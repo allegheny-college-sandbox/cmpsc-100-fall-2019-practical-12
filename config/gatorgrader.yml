@@ -3,8 +3,6 @@ name: practical-12
 break: true
 indent: 4
 ---
-ExecuteCommand --command "gradle run"
-
 src/main:
     java:
         heist/Key.java:
@@ -52,4 +50,5 @@ outputs:
         ConfirmFileExists
             
 CountCommits --count 5
+ExecuteCommand --command "gradle run"
 ExecuteCommand --command "gradle build"
